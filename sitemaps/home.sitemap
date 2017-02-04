@@ -12,7 +12,8 @@ sitemap home label="Swedesi"
   }
 
   Frame label="Grafana" {
-  	Image refresh=1000 url="http://peepli:3000/render/dashboard-solo/db/swedesi?panelId=1&width=700&height=350&from=now-5m&to=now"
+  	//Image refresh=1000 url="http://peepli:3000/render/dashboard-solo/db/swedesi?panelId=1&width=700&height=350&from=now-5m&to=now"
+    Webview url="http://peepli:3000/dashboard/db/swedesi?from=now-24h&to=now"   
   }
 
   Frame label="All Modules" {
