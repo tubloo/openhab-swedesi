@@ -1,0 +1,22 @@
+import jdk.nashorn.internal.runtime.Undefined
+
+rule "Fill Tank - Start/Stop Pump"
+
+when
+	Item levelTopTank received update or
+	Item levelBottomTank received update
+then
+	
+	//START Pump - Start pump only if pump is not already off, top tank reports low water and there is enough water in bottom tank
+	if((waterPump.state==OFF || waterPump.state==Undefined) && levelTopTank.state<30 && levelBottomTank.state>40){
+		//switch on pump
+		sendCommand(waterPump,ON)
+	}
+	
+	//STOP Pump - Stop pump only if pump is already on, and (top tank reports enough water or bottom tank runs out of water) 
+	if(waterPump.state==ON && (levelTopTank.state>80 || levelBottomTank.state<20)){
+		//switch off pump
+		sendCommand(waterPump,OFF)
+	}
+	
+end	

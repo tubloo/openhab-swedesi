@@ -1,0 +1,85 @@
+// Sanjoy Setup
+
+Group  demosan            "Sandbox"
+Switch Demo_LED           "LED"           (demosan)  {mqtt=">[mosquitto:c503/sensors/de/de/ledTest/write:command:OFF:0],>[mosquitto:c503/sensors/de/de/ledTest/write:command:ON:1]"}
+Number Demo_Distance     "Distance [%d]"  (demosan) {mqtt="<[mosquitto:c503/sensors/de/de/wlvTest:state:default]"}
+Switch Demo_TwoWaySwitch "Two Way Switch" (demosan) {mqtt=">[mosquitto:c503/sensors/de/de/twoTest/write:command:OFF:0],>[mosquitto:c503/sensors/de/de/twoTest/write:command:ON:1],<[mosquitto:c503/sensors/de/de/twoTest:state:MAP(onoffbinary.map)]"}
+
+//String  Demo_PublishItem "[%s]" { mqtt=">[mosquitto:c503/demo:command:*:default]" }
+
+//Demo - Virtual Items
+Number gfWaterLevel    "Virtual Water GF Level [%.0f%%]" <cistern> (demosan)
+Number gfWaterLevelRaw "Raw Water GF Level [%d]"         <cistern> (demosan) {mqtt="<[mosquitto:c503/sensors/de/de/gfWaterLevel:state:default]"}
+Number ohWaterLevel    "Virtual Water OH Level [%.0f%%]" <cistern> (demosan)
+Number ohWaterLevelRaw "Raw Water OH Level [%d]"         <cistern> (demosan) {mqtt="<[mosquitto:c503/sensors/de/de/ohWaterLevel:state:default]"}
+
+Switch gfPump          "GF Pump"           (demosan)
+Switch ohPump          "OH Pump"           (demosan)
+Switch Pump_Test       "Pump Test"         (demosan)
+Number chartingPeriod  "Chart Period [%s]" (demosan)
+
+
+//Floor Group
+Switch gfMainDoor      "Main Door Open"     <frontdoor> (gFirstFloor,gSecondFloor) {mqtt=">[mosquitto:c503/sensors/sf/lb/buzMainDoor/write:command:OFF:0],>[mosquitto:c503/sensors/sf/lb/buzMainDoor/write:command:ON:1]"}
+Group  gFirstFloor    "First Floor"                    <groundfloor>
+Switch ffMainPump     "FF Mains Pump"                                   (gFirstFloor) 
+Number ffUGWaterLevel "FF Lower Tank Level [%0.0f%%]"  <cistern>        (gFirstFloor)  
+Number ffOHWaterLevel "FF Upper Tank Level [%0.0f%%]"  <cistern>        (gFirstFloor)
+Switch ffOverheadPump "FF Overhead Pump"                                (gFirstFloor) 
+
+Number ffUGWaterLevelRaw "FF Lower Tank Level RAW"   <cistern> 
+Number ffOHWaterLevelRaw "FF Upper Tank Level RAW"   <cistern>
+
+Group  gSecondFloor "Second Floor"  <firstfloor>
+Switch sfMainPump   "SF Mains Pump" (gSecondFloor) {mqtt=">[mosquitto:c503/sensors/sf/na/elsSFMainPump/write:command:OFF:0],>[mosquitto:c503/sensors/sf/na/elsSFMainPump/write:command:ON:1]"}
+Number sfUGWaterLevel  "SF Lower Tank Level [%0.0f%%]"  <cistern>  (gSecondFloor) {mqtt="<[mosquitto:c503/sf/na/wlvUGWaterLevel:state:default]"} 
+Switch  sfOverheadPump "SF Overhead Pump"         (gSecondFloor) {mqtt=">[mosquitto:c503/sensors/sf/na/elsSFOverheadPump/write:command:OFF:0],>[mosquitto:c503/sensors/sf/na/elsSFOverheadPump/write:command:ON:1]"}
+Number sfOHWaterLevel  "SF Upper Tank Level [%0.0f%%]"  <cistern>  (gSecondFloor) 
+
+Number sfUGWaterLevelRaw "SF Lower Tank Level RAW"   
+Number sfOHWaterLevelRaw "SF Upper Tank Level RAW"   
+
+Group  gThirdFloor  "Third Floor" <terrace>
+
+// System Modules Group
+// Add a group for every controller that is deployed
+Group Modules   "All the System Modules"     <settings>
+Group g13944339 "13944339 - SF Main Door"    <shield>  (Modules)
+Group g16042231 "16042231 - SF Pump Switch"  <shield>  (Modules)
+
+// ** Main Door ** //
+// **** 13944339 START *****//
+String Sensor_13944339_Status "Status [%s]" <keyring> (g13944339) {mqtt="<[mosquitto:c503/system/13944339/status/msg:state:default]"}
+
+Switch Sensor_13944339_Enabled "Chip Enabled" <light> (g13944339) {mqtt=">[mosquitto:c503/system/13944339:command:OFF:disable],>[mosquitto:c503/system/13944339:command:ON:enable],<[mosquitto:c503/system/13944339/status/enabled:state:default]"}
+
+String Sensor_13944339_IP  "IP [%s]"  <settings> (g13944339) {mqtt="<[mosquitto:c503/system/13944339/status/ip:state:default]"}
+
+String Sensor_13944339_Msg_Time "Msg Time [%s]" <clock> (g13944339) {mqtt="<[mosquitto:c503/system/13944339/status/statustime:state:default]"}
+
+Switch Sensor_13944339_OLED  "OLED Enabled" <light> (g13944339) {mqtt=">[mosquitto:c503/system/13944339:command:OFF:oled-disable],>[mosquitto:c503/system/13944339:command:ON:oled-enable],<[mosquitto:c503/system/13944339/status/oled:state:default]"}
+
+Switch Sensor_13944339_DEBUG  "Debug Enabled" <status> (g13944339) {mqtt=">[mosquitto:c503/system/13944339:command:OFF:debug-off],>[mosquitto:c503/system/13944339:command:ON:debug-on],<[mosquitto:c503/system/13944339/status/debug:state:default]"}
+
+String Sensor_13944339_DeepSleep  "Deep Sleep [%s]" <bedroom_blue> (g13944339) {mqtt="<[mosquitto:c503/system/13944339/status/deepsleep:state:default]"}
+
+// **** 13944339 END *****//
+
+// ** SF Pump Switch Control **/
+// **** 16042231 START *****//
+String Sensor_16042231_Status "Status [%s]" <keyring> (g16042231) {mqtt="<[mosquitto:c503/system/16042231/status/msg:state:default]"}
+
+Switch Sensor_16042231_Enabled "Chip Enabled" <light> (g16042231) {mqtt=">[mosquitto:c503/system/16042231:command:OFF:disable],>[mosquitto:c503/system/16042231:command:ON:enable],<[mosquitto:c503/system/16042231/status/enabled:state:default]"}
+
+String Sensor_16042231_IP  "IP [%s]"  <settings> (g16042231) {mqtt="<[mosquitto:c503/system/16042231/status/ip:state:default]"}
+
+String Sensor_16042231_Msg_Time "Msg Time [%s]" <clock> (g16042231) {mqtt="<[mosquitto:c503/system/16042231/status/statustime:state:default]"}
+
+Switch Sensor_16042231_OLED  "OLED Enabled" <light> (g16042231) {mqtt=">[mosquitto:c503/system/16042231:command:OFF:oled-disable],>[mosquitto:c503/system/16042231:command:ON:oled-enable],<[mosquitto:c503/system/16042231/status/oled:state:default]"}
+
+Switch Sensor_16042231_DEBUG  "Debug Enabled" <status> (g16042231) {mqtt=">[mosquitto:c503/system/16042231:command:OFF:debug-off],>[mosquitto:c503/system/16042231:command:ON:debug-on],<[mosquitto:c503/system/16042231/status/debug:state:default]"}
+
+String Sensor_16042231_DeepSleep  "Deep Sleep [%s]" <bedroom_blue> (g16042231) {mqtt="<[mosquitto:c503/system/16042231/status/deepsleep:state:default]"}
+
+// **** 16042231 END *****//
+
