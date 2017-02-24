@@ -1,47 +1,5 @@
-sitemap home label="Swedesi" 
+
+sitemap default label="Swedesi"
 {
-  
-  Frame label="Swedesi" {
-    Switch item=gfMainDoor
-    Switch item=sfMainPump
-    Switch item=sfOverheadPump
-    Text item=sfUGWaterLevel labelcolor=[>70="green",>30="orange",>0="red"] valuecolor=[>70="green",>30="orange",>0="red"]
-    Text item=sfOHWaterLevel labelcolor=[>70="green",>30="orange",>0="red"] valuecolor=[>70="green",>30="orange",>0="red"]
-    Text item=ffUGWaterLevel labelcolor=[>70="green",>30="orange",>0="red"] valuecolor=[>70="green",>30="orange",>0="red"]
-    Text item=ffOHWaterLevel labelcolor=[>70="green",>30="orange",>0="red"] valuecolor=[>70="green",>30="orange",>0="red"]
-  }
-
-  Frame label="Grafana" {
-  	//Image refresh=1000 url="http://peepli:3000/render/dashboard-solo/db/swedesi?panelId=1&width=700&height=350&from=now-5m&to=now"
-    Webview url="http://peepli:3000/dashboard/db/swedesi?from=now-24h&to=now" height=20  
-    Webview url="https://darksky.net/forecast/56.0442,12.7041/si24/en"height=20
-  }
-
-  Frame label="All Modules" {
-    Group item=Modules label="All the system modules"
-  }
-
-  Frame label="Sanjoy Demo" {
-    Switch item=Demo_LED
-    Text item=Demo_Distance
-    Switch item=Demo_TwoWaySwitch
-    Switch item=Pump_Test
-    Text item=gfWaterLevel labelcolor=[>70="green",>30="orange",>0="red"] valuecolor=[>70="green",>30="orange",>0="red"]
-    Text item=gfWaterLevelRaw
-    Text item=ohWaterLevel labelcolor=[>70="green",>30="orange",>0="red"] valuecolor=[>70="green",>30="orange",>0="red"]
-    Text item=ohWaterLevelRaw
-    Switch item=gfPump
-    Switch item=ohPump
-    Switch item=chartingPeriod label="Chart Period" mappings=[0="H", 1="12H", 2="D", 3="W", 4="M"]  
-    Chart item=gfWaterLevel period=h   refresh=300 visibility=[chartingPeriod==0, chartingPeriod=="Uninitialized"]  
-    Chart item=gfWaterLevel period=12h refresh=300 visibility=[chartingPeriod==1]  
-    Chart item=gfWaterLevel period=D   refresh=300 visibility=[chartingPeriod==2]
-    Chart item=gfWaterLevel period=W   refresh=300 visibility=[chartingPeriod==3]  
-  }
-
-  Frame label="Home" icon=<home> {
-    Group item=gFirstFloor   label="First Floor"
-    Group item=gSecondFloor label="Second Floor"
-    Group item=gThirdFloor   label="Third Floor"
-  }
+	Switch item=Presence_Mobile_Sumit label="Sumit's Mobile"
 }
