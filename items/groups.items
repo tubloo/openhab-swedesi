@@ -1,0 +1,15 @@
+Group	gIndoor			"Indoor"
+Group	gOutdoor		"Outdoor"
+
+Group	gHall			"Entry Hall"
+Group	gBathroom		"Bathroom"
+Group	gLivingRoom		"Living Room"
+Group	gKitchen		"Kitchen"
+Group	gBedroom		"Bedroom"
+Group	gBalcony		"Balcony"
+
+Group	gTemperature	"Temperature Sensor"
+Group	gMotion			"Motion Sensor"
+Group	gAmbientLight	"Ambient Light Sensor"
+
+

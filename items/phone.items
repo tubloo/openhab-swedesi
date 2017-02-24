@@ -1,1 +1,1 @@
-Switch Presence_Mobile_Sumit "Sumit's Mobile" <network> { channel="network:device:192_168_254_105:online" }
+Switch iSumitPhone "Sumit's Mobile" <network> { channel="network:device:192_168_254_105:online" }

@@ -1,5 +1,7 @@
 
 sitemap default label="Swedesi"
 {
-	Switch item=Presence_Mobile_Sumit label="Sumit's Mobile"
+	Switch item=iSumitPhone
+	Text item=iBedroomTemperature
+	
 }
