@@ -8,7 +8,8 @@ Group	gKitchen		"Kitchen"						(gIndoor)
 Group	gBedroom		"Bedroom"						(gIndoor)
 Group	gBalcony		"Balcony"						(gOutdoor)
 
-Group:Number:AVG		gAvgTemperature	"Avg. Home Temp. [%.1f °C]"		
+Group:Number:AVG gAvgTemperature "Avg. Home Temp. [%.1f °C]" <temperature>
+	
 Group	gTemperature	"Temperature Sensor"
 Group	gMotion			"Motion Sensor"
 Group	gAmbientLight	"Ambient Light Sensor"
