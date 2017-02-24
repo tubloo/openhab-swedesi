@@ -6,6 +6,7 @@ sitemap default label="Swedesi"
 	Text item=iBedroomTemperature
 	Text item=iLivingRoomTemperature
 	Text item=iBathroomTemperature
-	Text item=iKitchenTemperature				
+	Text item=iKitchenTemperature
+	Text item=iBalconyTemperature					
 	
 }

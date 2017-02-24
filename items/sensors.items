@@ -2,5 +2,7 @@ Number iBedroomTemperature 		"Temperature [%.2f °C]" <temperature> 	(gBedroom, 
 Number iLivingRoomTemperature 	"Temperature [%.2f °C]" <temperature> 	(gLivingRoom, gTemperature)	{mqtt="<[mosquitto:home/livingroom/temperature:state:default]"}
 Number iBathroomTemperature 	"Temperature [%.2f °C]" <temperature> 	(gBathroom, gTemperature) 	{mqtt="<[mosquitto:home/bathroom/temperature:state:default]"}
 Number iKitchenTemperature 		"Temperature [%.2f °C]" <temperature> 	(gKitchen, gTemperature) 	{mqtt="<[mosquitto:home/kitchen/temperature:state:default]"}
+Number iBalconyTemperature 		"Temperature [%.2f °C]" <temperature> 	(gBalcony, gTemperature) 	{mqtt="<[mosquitto:home/kitchen/temperature:state:default]"}
+
 
 Group:Number:AVG	iAvgHomeTemp	"Avg. Home Temp. [%.1f °C]"		<temperature>	(gIndoor, gTemperature)
