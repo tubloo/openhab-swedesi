@@ -2,6 +2,6 @@
 sitemap default label="Swedesi"
 {
 	Switch item=iSumitPhone
-	Text item=iBedroomTemperature
+	Text item=iAvgHomeTemp
 	
 }
