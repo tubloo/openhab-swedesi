@@ -12,6 +12,6 @@ Group	gTemperature	"Temperature Sensor"
 Group	gMotion			"Motion Sensor"
 Group	gAmbientLight	"Ambient Light Sensor"
 
-Group:Number:AVG	iAvgHomeTemp	"Avg. Home Temp. [%.1f °C]"		<temperature>
+
 
 
