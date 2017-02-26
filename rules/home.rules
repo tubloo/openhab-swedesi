@@ -23,13 +23,11 @@ then
     sendCommand(iLampBedroom, ON)
     sendCommand(iMotionBedroom, OFF)
     
-    if(_timerA == null) {
-      _timerA = createTimer(now.plusSeconds(10)) [|
+    _timerA = createTimer(now.plusSeconds(10)) [|
         Override = true
 
         sendCommand(iLampBedroom, OFF)
       ]
-    }
     
   }
   else if(iMotionBedroom.state == ON) {
