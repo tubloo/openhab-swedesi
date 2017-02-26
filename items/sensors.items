@@ -6,12 +6,12 @@ Number iKitchenTemperature 		"Kitchen [%.1f °C]" 	<temperature> 	(gKitchen, gAv
 Number iBalconyTemperature 		"Balcony [%.1f °C]" 	<temperature> 	(gBalcony, gTemperature) 			{mqtt="<[mosquitto:home/balcony/temperature:state:default]"}
 */
 
-Number iBedroomTemperature 		"Bedroom [%.1f °C]" 	<temperature> 	(gAvgTemperature) 		{mqtt="<[mosquitto:home/bedroom/temperature:state:default]"}
-Number iLivingRoomTemperature 	"Livingroom [%.1f °C]" 	<temperature> 	(gAvgTemperature)		{mqtt="<[mosquitto:home/livingroom/temperature:state:default]"}
-Number iBathroomTemperature 	"Bathroom [%.1f °C]" 	<temperature> 	(gAvgTemperature) 		{mqtt="<[mosquitto:home/bathroom/temperature:state:default]"}
-Number iKitchenTemperature 		"Kitchen [%.1f °C]" 	<temperature> 	(gAvgTemperature) 		{mqtt="<[mosquitto:home/kitchen/temperature:state:default]"}
+Number iBedroomTemperature 		"Bedroom [%.1f °C]" 	<temperature> 	(gAvgTemperature) 					{mqtt="<[mosquitto:home/bedroom/temperature:state:default]"}
+Number iLivingRoomTemperature 	"Livingroom [%.1f °C]" 	<temperature> 	(gAvgTemperature)					{mqtt="<[mosquitto:home/livingroom/temperature:state:default]"}
+Number iBathroomTemperature 	"Bathroom [%.1f °C]" 	<temperature> 	(gAvgTemperature) 					{mqtt="<[mosquitto:home/bathroom/temperature:state:default]"}
+Number iKitchenTemperature 		"Kitchen [%.1f °C]" 	<temperature> 	(gAvgTemperature) 					{mqtt="<[mosquitto:home/kitchen/temperature:state:default]"}
 Number iBalconyTemperature 		"Balcony [%.1f °C]" 	<temperature> 	(gBalcony, gTemperature) 			{mqtt="<[mosquitto:home/balcony/temperature:state:default]"}
 
-Switch  iLampBathroom       	"Bathroom Lamp"         {mqtt=">[mosquitto:home/bathroom/lamp:command:OFF:0],>[mosquitto:home/bathroom/lamp:command:ON:1]"}
+//Switch iLampBathroom       		"Bathroom Lamp"         {mqtt=">[mosquitto:home/bathroom/lamp:command:OFF:0],>[mosquitto:home/bathroom/lamp:command:ON:1]"}
 //,<[mosquitto:home/bathroom/lamp:state:default]"}
 
