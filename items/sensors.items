@@ -12,3 +12,5 @@ Number iBathroomTemperature 	"Bathroom [%.1f °C]" 	<temperature> 	(gAvgTemperat
 Number iKitchenTemperature 		"Kitchen [%.1f °C]" 	<temperature> 	(gAvgTemperature) 		{mqtt="<[mosquitto:home/kitchen/temperature:state:default]"}
 Number iBalconyTemperature 		"Balcony [%.1f °C]" 	<temperature> 	(gBalcony, gTemperature) 			{mqtt="<[mosquitto:home/balcony/temperature:state:default]"}
 
+Switch  iLampBathroom       	"Bathroom Lamp"         <light>		{mqtt=">[mosquitto:home/bedroom/lamp:command:OFF:0],>[mosquitto:home/bedroom/lamp:command:ON:1],<[mosquitto:home/bedroom/lamp:state:default]"}
+
