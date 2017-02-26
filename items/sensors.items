@@ -7,3 +7,5 @@ Number iBalconyTemperature 		"[%.1f °C]"	<temperature>	{mqtt="<[mosquitto:home/
 Switch iLampBathroom	<light>	{mqtt=">[mosquitto:home/bathroom/lamp/command:command:OFF:0],>[mosquitto:home/bathroom/lamp/command:command:ON:1],<[mosquitto:home/bathroom/lamp/state:state:MAP(onoffbinary.map)]"}
 Switch iLampBedroom		<light>	{mqtt=">[mosquitto:home/bedroom/lamp/command:command:OFF:0],>[mosquitto:home/bedroom/lamp/command:command:ON:1],<[mosquitto:home/bedroom/lamp/state:state:MAP(onoffbinary.map)]"}
 
+Switch iMotionBedroom			{mqtt=">[mosquitto:home/bedroom/motion/command:command:OFF:0],>[mosquitto:home/bedroom/motion/command:command:ON:1],<[mosquitto:home/bedroom/motion/state:state:MAP(onoffbinary.map)]"}
+	
