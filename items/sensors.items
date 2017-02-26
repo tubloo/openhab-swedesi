@@ -1,8 +1,8 @@
-Number iBedroomTemperature 		"Bedroom [%.1f °C]"	<temperature>	{mqtt="<[mosquitto:home/bedroom/temperature:state:default]"}
-Number iLivingRoomTemperature 	"Livingroom [%.1f °C]"	<temperature>	{mqtt="<[mosquitto:home/livingroom/temperature:state:default]"}
-Number iBathroomTemperature 	"Bathroom [%.1f °C]"	<temperature>	{mqtt="<[mosquitto:home/bathroom/temperature:state:default]"}
-Number iKitchenTemperature 		"Kitchen [%.1f °C]"	<temperature>	{mqtt="<[mosquitto:home/kitchen/temperature:state:default]"}
-Number iBalconyTemperature 		"Balcony [%.1f °C]"	<temperature>	{mqtt="<[mosquitto:home/balcony/temperature:state:default]"}
+Number iBedroomTemperature 		"[%.1f °C]"	<temperature>	{mqtt="<[mosquitto:home/bedroom/temperature:state:default]"}
+Number iLivingRoomTemperature 	"[%.1f °C]"	<temperature>	{mqtt="<[mosquitto:home/livingroom/temperature:state:default]"}
+Number iBathroomTemperature 	"[%.1f °C]"	<temperature>	{mqtt="<[mosquitto:home/bathroom/temperature:state:default]"}
+Number iKitchenTemperature 		"[%.1f °C]"	<temperature>	{mqtt="<[mosquitto:home/kitchen/temperature:state:default]"}
+Number iBalconyTemperature 		"[%.1f °C]"	<temperature>	{mqtt="<[mosquitto:home/balcony/temperature:state:default]"}
 
 Switch iLampBathroom	<light>	{mqtt=">[mosquitto:home/bathroom/lamp/command:command:OFF:0],>[mosquitto:home/bathroom/lamp/command:command:ON:1],<[mosquitto:home/bathroom/lamp/state:state:MAP(onoffbinary.map)]"}
 Switch iLampBedroom		<light>	{mqtt=">[mosquitto:home/bedroom/lamp/command:command:OFF:0],>[mosquitto:home/bedroom/lamp/command:command:ON:1],<[mosquitto:home/bedroom/lamp/state:state:MAP(onoffbinary.map)]"}
