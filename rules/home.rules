@@ -14,23 +14,24 @@ when
     Item iMotionBedroom changed
 then
 	
-	if((iMotionBedroom.state == ON) && (iLuxBedroom.state < 400)) {
+	if(iMotionBedroom.state == ON) {
 	
 		sendCommand(iMotionBedroom, OFF)  
 		
-		if(iLampBedroom.state == OFF) {
-			sendCommand(iLampBedroom, ON)
-		}
-    
-    	if(_timerBedroom != null) {
-    		_timerBedroom.cancel()
-    		_timerBedroom = null
-    	}
-    	
-		_timerBedroom = createTimer(now.plusSeconds(onDuration)) [|
-		sendCommand(iLampBedroom, OFF)
-  		]
-      
+		if(iLuxBedroom.state < 400) {
+			if(iLampBedroom.state == OFF) {
+				sendCommand(iLampBedroom, ON)
+			}
+	    
+	    	if(_timerBedroom != null) {
+	    		_timerBedroom.cancel()
+	    		_timerBedroom = null
+	    	}
+	    	
+			_timerBedroom = createTimer(now.plusSeconds(onDuration)) [|
+			sendCommand(iLampBedroom, OFF)
+	  		]
+	  	}
   	}
  
 end
