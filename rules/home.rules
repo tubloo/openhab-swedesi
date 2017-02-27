@@ -4,9 +4,7 @@ import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
 
 // Global Variables
-var boolean Override = false
 var Timer _timerA = null
-var Timer _timerB = null
 
 
 rule "Bedroom Lamp Controller"
@@ -18,21 +16,16 @@ then
   // This section controls the fan between a high and low set-point.
   if((iMotionBedroom.state == ON) && (iLampBedroom.state == OFF)) {
     
-    Override = false
-
     sendCommand(iLampBedroom, ON)
     sendCommand(iMotionBedroom, OFF)
     
     _timerA = createTimer(now.plusSeconds(5)) [|
-        Override = true
-
-        sendCommand(iLampBedroom, OFF)
+		sendCommand(iLampBedroom, OFF)
       ]
-    
+   
   }
   else if(iMotionBedroom.state == ON) {
   	sendCommand(iMotionBedroom, OFF)	
   }
  
-
 end

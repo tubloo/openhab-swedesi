@@ -1,11 +1,28 @@
-Number iBedroomTemperature 		"[%.1f °C]"	<temperature>	{mqtt="<[mosquitto:home/bedroom/temperature:state:default]"}
-Number iLivingRoomTemperature 	"[%.1f °C]"	<temperature>	{mqtt="<[mosquitto:home/livingroom/temperature:state:default]"}
-Number iBathroomTemperature 	"[%.1f °C]"	<temperature>	{mqtt="<[mosquitto:home/bathroom/temperature:state:default]"}
-Number iKitchenTemperature 		"[%.1f °C]"	<temperature>	{mqtt="<[mosquitto:home/kitchen/temperature:state:default]"}
-Number iBalconyTemperature 		"[%.1f °C]"	<temperature>	{mqtt="<[mosquitto:home/balcony/temperature:state:default]"}
+//Living Room
+Number iTempLivingroom		{mqtt="<[mosquitto:home/livingroom/temperature:state:default]"}
+Number iLuxLivingroom 		{mqtt="<[mosquitto:home/livingroom/lux:state:default]"}
+Switch iLampLivingroom		{mqtt=">[mosquitto:home/livingroom/lamp/command:command:OFF:0],>[mosquitto:home/livingroom/lamp/command:command:ON:1],<[mosquitto:home/livingroom/lamp/state:state:MAP(onoffbinary.map)]"}
+Switch iMotionLivingroom	{mqtt=">[mosquitto:home/livingroom/motion/command:command:OFF:0],>[mosquitto:home/livingroom/motion/command:command:ON:1],<[mosquitto:home/livingroom/motion/state:state:MAP(onoffbinary.map)]"}
 
-Switch iLampBathroom	<light>	{mqtt=">[mosquitto:home/bathroom/lamp/command:command:OFF:0],>[mosquitto:home/bathroom/lamp/command:command:ON:1],<[mosquitto:home/bathroom/lamp/state:state:MAP(onoffbinary.map)]"}
-Switch iLampBedroom		<light>	{mqtt=">[mosquitto:home/bedroom/lamp/command:command:OFF:0],>[mosquitto:home/bedroom/lamp/command:command:ON:1],<[mosquitto:home/bedroom/lamp/state:state:MAP(onoffbinary.map)]"}
 
-Switch iMotionBedroom			{mqtt=">[mosquitto:home/bedroom/motion/command:command:OFF:0],>[mosquitto:home/bedroom/motion/command:command:ON:1],<[mosquitto:home/bedroom/motion/state:state:MAP(onoffbinary.map)]"}
-	
+//Bedroom
+Number iTempBedroom			{mqtt="<[mosquitto:home/bedroom/temperature:state:default]"}
+Number iLuxBedroom			{mqtt="<[mosquitto:home/bedroom/lux:state:default]"}
+Switch iLampBedroom			{mqtt=">[mosquitto:home/bedroom/lamp/command:command:OFF:0],>[mosquitto:home/bedroom/lamp/command:command:ON:1],<[mosquitto:home/bedroom/lamp/state:state:MAP(onoffbinary.map)]"}
+Switch iMotionBedroom		{mqtt=">[mosquitto:home/bedroom/motion/command:command:OFF:0],>[mosquitto:home/bedroom/motion/command:command:ON:1],<[mosquitto:home/bedroom/motion/state:state:MAP(onoffbinary.map)]"}
+
+
+//Bathroom
+Number iTempBathroom		{mqtt="<[mosquitto:home/bathroom/temperature:state:default]"}
+Number iLuxBathroom			{mqtt="<[mosquitto:home/bathroom/lux:state:default]"}
+Switch iLampBathroom		{mqtt=">[mosquitto:home/bathroom/lamp/command:command:OFF:0],>[mosquitto:home/bathroom/lamp/command:command:ON:1],<[mosquitto:home/bathroom/lamp/state:state:MAP(onoffbinary.map)]"}
+Switch iMotionBathroom		{mqtt=">[mosquitto:home/bathroom/motion/command:command:OFF:0],>[mosquitto:home/bathroom/motion/command:command:ON:1],<[mosquitto:home/bathroom/motion/state:state:MAP(onoffbinary.map)]"}
+
+
+//Kitchen
+Number iTempKitchen 		{mqtt="<[mosquitto:home/kitchen/temperature:state:default]"}
+
+
+//Balcony
+Number iTempBalcony			{mqtt="<[mosquitto:home/balcony/temperature:state:default]"}
+
