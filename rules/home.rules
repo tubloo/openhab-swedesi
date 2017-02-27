@@ -4,16 +4,17 @@ import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
 
 // Global Variables
-var Timer _timer = null
-var boolean isTimer = false		
-
+var int onDuration = 5
+var Timer _timerBedroom = null
+	
+//https://msdn.microsoft.com/en-us/library/windows/desktop/dd319008(v=vs.85).aspx
 
 rule "Bedroom Lamp Controller"
 when
     Item iMotionBedroom changed
 then
 	
-	if(iMotionBedroom.state == ON) {
+	if((iMotionBedroom.state == ON) && (iLuxBedroom.state < 400)) {
 	
 		sendCommand(iMotionBedroom, OFF)  
 		
@@ -21,14 +22,13 @@ then
 			sendCommand(iLampBedroom, ON)
 		}
     
-    	if(_timer != null) {
-    		_timer.cancel()
-    		_timer = null
+    	if(_timerBedroom != null) {
+    		_timerBedroom.cancel()
+    		_timerBedroom = null
     	}
     	
-		_timer = createTimer(now.plusSeconds(5)) [|
+		_timerBedroom = createTimer(now.plusSeconds(onDuration)) [|
 		sendCommand(iLampBedroom, OFF)
-		isTimer = false;
   		]
       
   	}
