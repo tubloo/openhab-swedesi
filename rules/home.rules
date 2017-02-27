@@ -4,28 +4,33 @@ import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
 
 // Global Variables
-var Timer _timerA = null
+var Timer _timer = null
+var boolean isTimer = false		
 
 
 rule "Bedroom Lamp Controller"
 when
     Item iMotionBedroom changed
-    or
-    Item iLampBedroom changed
 then
-  // This section controls the fan between a high and low set-point.
-  if((iMotionBedroom.state == ON) && (iLampBedroom.state == OFF)) {
+	
+	if(iMotionBedroom.state == ON) {
+	
+		sendCommand(iMotionBedroom, OFF)  
+		
+		if(iLampBedroom.state == OFF) {
+			sendCommand(iLampBedroom, ON)
+		}
     
-    sendCommand(iLampBedroom, ON)
-    sendCommand(iMotionBedroom, OFF)
-    
-    _timerA = createTimer(now.plusSeconds(5)) [|
+    	if(_timer != null) {
+    		_timer.cancel()
+    		_timer = null
+    	}
+    	
+		_timer = createTimer(now.plusSeconds(5)) [|
 		sendCommand(iLampBedroom, OFF)
-      ]
-   
-  }
-  else if(iMotionBedroom.state == ON) {
-  	sendCommand(iMotionBedroom, OFF)	
-  }
+		isTimer = false;
+  		]
+      
+  	}
  
 end
