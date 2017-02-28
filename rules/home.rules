@@ -6,14 +6,15 @@ import org.openhab.model.script.actions.*
 // Global Variables
 var int onDuration = 5
 var Timer _timerBedroom = null
-	
+
+//LUX values definition	
 //https://msdn.microsoft.com/en-us/library/windows/desktop/dd319008(v=vs.85).aspx
 
 rule "Bedroom Lamp Controller"
 when
     Item iMotionBedroom changed
 then
-	
+	//RULE: Switch on lamp temporarily if it is dark and motion is detected
 	if(iMotionBedroom.state == ON) {
 	
 		sendCommand(iMotionBedroom, OFF)  
@@ -33,5 +34,18 @@ then
 	  		]
 	  	}
   	}
- 
 end
+
+rule "Motion Detected"
+when
+	Item iMotionBedroom changed
+	or
+	Item iMotionBathroom changed
+	or 
+	Item iMotionLivingroom changed
+then
+	//RULE: Alert when Motion is detected and there is no one at home
+	if(iPresenceSumit.state == OFF) {
+		sendCommand(iLampBathroom, ON)	
+	}
+end	
