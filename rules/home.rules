@@ -48,6 +48,6 @@ then
 	if(iPresenceSumit.state == OFF) {
 		sendCommand(iLampBathroom, ON)
 		sendTelegram("SwedesiBot" , "Motion Detected")
-		sendTelegramPhoto("bot1", "https://unsplash.it/300/200/?random", null)	
+		sendTelegramPhoto("SwedesiBot", "https://unsplash.it/300/200/?random", null)	
 	}
 end	
