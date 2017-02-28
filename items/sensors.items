@@ -26,3 +26,5 @@ Number iTempKitchen 		{mqtt="<[mosquitto:home/kitchen/temperature:state:default]
 //Balcony
 Number iTempBalcony			{mqtt="<[mosquitto:home/balcony/temperature:state:default]"}
 
+//Presence
+Switch iPresenceSumit		{channel="network:device:192_168_254_105:online"}
