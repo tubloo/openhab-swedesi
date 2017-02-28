@@ -45,6 +45,7 @@ when
 	Item iMotionLivingroom changed
 then
 	//RULE: Alert when Motion is detected and there is no one at home
+	sendCommand(iLampBathroom, ON)
 	if(iPresenceSumit.state == OFF) {
 		sendCommand(iLampBathroom, ON)	
 	}
