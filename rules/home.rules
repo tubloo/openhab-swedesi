@@ -45,8 +45,7 @@ when
 	Item iMotionLivingroom changed
 then
 	//RULE: Alert when Motion is detected and there is no one at home
-	if(iPresenceSumit.state == OFF) {
-		sendCommand(iLampBathroom, ON)
+	if(((iMotionBedroom.state == ON) || (iMotionBathroom.state == ON) || (iMotionLivingroom.state == ON)) && (iPresenceSumit.state == OFF)) {
 		sendTelegram("SwedesiBot" , "Motion Detected")
 		sendTelegramPhoto("SwedesiBot", "https://unsplash.it/300/200/?random", null)	
 	}
