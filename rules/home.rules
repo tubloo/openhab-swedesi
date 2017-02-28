@@ -47,6 +47,7 @@ then
 	//RULE: Alert when Motion is detected and there is no one at home
 	if(iPresenceSumit.state == OFF) {
 		sendCommand(iLampBathroom, ON)
-		sendTelegram("SwedesiBot" , "Motion Detected")	
+		sendTelegram("SwedesiBot" , "Motion Detected")
+		sendTelegramPhoto("bot1", "https://unsplash.it/300/200/?random", null)	
 	}
 end	
