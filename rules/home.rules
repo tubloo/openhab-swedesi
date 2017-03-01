@@ -4,6 +4,7 @@ import org.openhab.core.persistence.*
 import org.openhab.model.script.actions.*
 
 // Global Variables
+var String telegrambot = "SwedesiBot"
 var int onDuration = 5
 var Timer _timerBedroom = null
 
@@ -46,7 +47,8 @@ when
 then
 	//RULE: Alert when Motion is detected and there is no one at home
 	if(((iMotionBedroom.state == ON) || (iMotionBathroom.state == ON) || (iMotionLivingroom.state == ON)) && (iPresenceSumit.state == OFF)) {
-		sendTelegram("SwedesiBot" , "Motion Detected")
-		sendTelegramPhoto("SwedesiBot", "https://unsplash.it/300/200/?random", null)	
+		sendTelegram(telegrambot, "Motion Detected")
+		//sendTelegramPhoto(telegrambot, "https://unsplash.it/300/200/?random", null)
+		sendTelegramPhoto(telegrambot, "https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg", null)	
 	}
 end	
