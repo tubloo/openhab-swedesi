@@ -28,3 +28,4 @@ Number iTempBalcony			{mqtt="<[mosquitto:home/balcony/temperature:state:default]
 
 //Presence
 Switch iPresenceSumit		{channel="network:device:192_168_254_105:online"}
+Switch iPresenceParul		{channel="network:device:192_168_254_199:online"}
