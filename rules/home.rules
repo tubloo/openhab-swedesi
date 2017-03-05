@@ -67,7 +67,7 @@ end
 
 rule "Livingroom Lamp Controller"
 when
-    Item iMotionBathroom changed
+    Item iMotionLivingroom changed
 then
 	//RULE: Switch on lamp temporarily if it is dark and motion is detected
 	if(iMotionLivingroom.state == ON) {
