@@ -20,7 +20,7 @@ then
 	//RULE: Switch on lamp temporarily if it is dark and motion is detected
 	if(iMotionBedroom.state == ON) {
 	
-		sendCommand(iMotionBedroom, OFF)  
+		//sendCommand(iMotionBedroom, OFF)  
 		
 		if(iLuxBedroom.state < 400) {
 			if(iLampBedroom.state == OFF) {
