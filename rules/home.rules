@@ -18,30 +18,19 @@ when
     Item iMotionBedroom changed
 then
 	//RULE: Switch on lamp temporarily if it is dark and motion is detected
-	if(iMotionBedroom.state == ON) {
-	
-		//sendCommand(iMotionBedroom, OFF)  
-		
-		if(iLuxBedroom.state < 400) {
-			if(iLampBedroom.state == OFF) {
-				sendCommand(iLampBedroom, ON)
-			}
-	    
-/*	    	if(_timerBedroom != null) {
-	    		_timerBedroom.cancel()
-	    		_timerBedroom = null
-	    	}
-	    	
-			_timerBedroom = createTimer(now.plusSeconds(onDuration)) [|
-			sendCommand(iLampBedroom, OFF)
-	  		]
-*/
-	  	}
+	if(iMotionBedroom.state == ON && iLampBathroom.state == OFF && iLuxBedroom.state < 400) {
+		sendCommand(iLampBedroom, ON)
   	}
-  	else if(iMotionBedroom.state == OFF) {
-  		if(iLampBedroom.state == ON) {
-				sendCommand(iLampBedroom, OFF)
-			}
+  	else if(iMotionBedroom.state == OFF && iLampBathroom.state == ON) {
+
+		if(_timerBedroom != null) {
+	    	_timerBedroom.cancel()
+	    	_timerBedroom = null
+	    }
+	    	
+		_timerBedroom = createTimer(now.plusSeconds(onDuration)) [|
+		sendCommand(iLampBedroom, OFF)
+	  	]
   	} 
 end
 
