@@ -21,7 +21,8 @@ then
 	if(iMotionBedroom.state == ON && iLampBathroom.state == OFF && iLuxBedroom.state < 400) {
 		sendCommand(iLampBedroom, ON)
   	}
-  	else if(iMotionBedroom.state == OFF && iLampBathroom.state == ON) {
+  	
+  	if(iMotionBedroom.state == OFF && iLampBathroom.state == ON) {
 
 		if(_timerBedroom != null) {
 	    	_timerBedroom.cancel()
@@ -31,7 +32,8 @@ then
 		_timerBedroom = createTimer(now.plusSeconds(onDuration)) [|
 		sendCommand(iLampBedroom, OFF)
 	  	]
-  	} 
+  	}
+  	 
 end
 
 rule "Bathroom Lamp Controller"
