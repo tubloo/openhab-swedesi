@@ -27,7 +27,7 @@ then
 				sendCommand(iLampBedroom, ON)
 			}
 	    
-	    	if(_timerBedroom != null) {
+/*	    	if(_timerBedroom != null) {
 	    		_timerBedroom.cancel()
 	    		_timerBedroom = null
 	    	}
@@ -35,8 +35,14 @@ then
 			_timerBedroom = createTimer(now.plusSeconds(onDuration)) [|
 			sendCommand(iLampBedroom, OFF)
 	  		]
+*/
 	  	}
   	}
+  	else if(iMotionBedroom.state == OFF) {
+  		if(iLampBedroom.state == ON) {
+				sendCommand(iLampBedroom, OFF)
+			}
+  	} 
 end
 
 rule "Bathroom Lamp Controller"
