@@ -33,3 +33,7 @@ Number iHumidBalcony		{mqtt="<[mosquitto:home/balcony/humidity:state:default]"}
 //Presence
 Switch iPresenceSumit		{channel="network:device:192_168_254_35:online"}
 Switch iPresenceParul		{channel="network:device:192_168_254_179:online"}
+
+
+//IKEA Tradfri
+Dimmer Light { channel="tradfri:0100:mygateway:myDimmableBulb:brightness" }
