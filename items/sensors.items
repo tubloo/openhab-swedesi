@@ -24,7 +24,7 @@ Switch iMotionBathroom		{mqtt=">[mosquitto:home/bathroom/motion/command:command:
 
 //Kitchen
 Number iTempKitchen 		{mqtt="<[mosquitto:home/kitchen/temperature:state:default]"}
-Dimmer iLightKitchen
+Dimmer iLampKitchen
 
 //Balcony
 Number iTempBalcony			{mqtt="<[mosquitto:home/balcony/temperature:state:default]"}
