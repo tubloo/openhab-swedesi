@@ -87,8 +87,19 @@ when
 then
 	//RULE: Alert when Motion is detected and there is no one at home
 	if(((iMotionBedroom.state == ON) || (iMotionBathroom.state == ON) || (iMotionLivingroom.state == ON)) && ( (iPresenceSumit.state == OFF) && (iPresenceParul.state == OFF) ) ) {
-		sendTelegram(telegrambot, "Motion Detected")
+		
+		var String msg = "";
+		
+		switch(true)
+		{
+			case iMotionBedroom.state == ON:  msg = "Bedroom"
+			case iMotionBathroom.state == ON:  msg = "Bathroom"
+			case iMotionLivingroom.state == ON:  msg = "Livingroom"	
+		}
+		
+		sendTelegram(telegrambot, msg + " - Motion Detected")
 		//sendTelegramPhoto(telegrambot, "https://unsplash.it/300/200/?random", null)
+		//http://192.168.254.3/cgi-bin/video_snapshot.cgi?user=admin&pwd=p%40ssw0rd
 		sendTelegramPhoto(telegrambot, "https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg", null)	
 	}
 end	
