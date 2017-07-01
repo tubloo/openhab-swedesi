@@ -1,4 +1,0 @@
-Bridge tradfri:gateway:mygateway [ host="192.168.254.203", code="Gk0LTdOopcBBmt6i" ] {
-    0100 myDimmableBulb [ id=65537 ]    
-    0220 myColorTempBulb [ id=65538 ]    
-}
