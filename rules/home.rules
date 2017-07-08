@@ -40,10 +40,10 @@ when
     Item iMotionBathroom changed
 then
 	//RULE: Switch on lamp temporarily if it is dark and motion is detected
-	if(iMotionBathroom.state == ON && iLampBathroom.state == OFF && iLuxBathroom.state < minLux) {
-		sendCommand(iLampBathroom, ON)
+	if(iMotionBathroom.state == ON && BathroomLamp_Brightness.state == OFF && iLuxBathroom.state < minLux) {
+		sendCommand(BathroomLamp_Brightness, ON)
   	}
-  	else if(iMotionBathroom.state == OFF && iLampBathroom.state == ON) {
+  	else if(iMotionBathroom.state == OFF && BathroomLamp_Brightness.state == ON) {
 
 		if(_timerBathroom != null) {
 	    	_timerBathroom.cancel()
@@ -51,7 +51,7 @@ then
 	    }
 	    	
 		_timerBathroom = createTimer(now.plusSeconds(onDuration)) [|
-		sendCommand(iLampBathroom, OFF)
+		sendCommand(BathroomLamp_Brightness, OFF)
 	  	]
   	}  	 
 end
