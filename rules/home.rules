@@ -35,6 +35,7 @@ then
   	}  	 
 end
 
+/*
 rule "Bathroom Lamp Controller"
 when
     Item iMotionBathroom changed
@@ -55,6 +56,7 @@ then
 	  	]
   	}  	 
 end
+*/
 
 rule "Livingroom Lamp Controller"
 when
